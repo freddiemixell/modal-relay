@@ -13,16 +13,37 @@ npm install --save modal-router
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
+import React from 'react'
 
-import MyComponent from 'modal-router'
-import 'modal-router/dist/index.css'
+import { ModalRouter, Modal, useModalStore } from 'modal-router';
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+const modalRoot = document.getElementById('modal-root');
+
+const App = () => {
+  const {activate, deactivate} = useModalStore();
+
+  return (
+    <div>
+      <button onClick={() => activate('settings')}>Edit Settings</button>
+      <ModalRouter modalRoot={modalRoot}>
+        <Modal
+          id="settings"
+          title="Settings"
+          actions={[
+            {
+              text: 'Close',
+              onClick: () => deactivate('settings')
+            }
+          ]}
+        >
+          <h1>Settings</h1>
+        </Modal>
+      </ModalRouter>
+    </div>
+  )
 }
+
+export default App
 ```
 
 ## License
