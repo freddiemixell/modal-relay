@@ -1,10 +1,5 @@
-import * as React from 'react'
-import styles from './styles.module.css'
+import { Modal } from "./components/Modal";
+import { ModalRouter } from "./components/ModalRouter";
+import { useModalStore } from "./core/store";
 
-interface Props {
-  text: string
-}
-
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export { Modal, ModalRouter, useModalStore };
