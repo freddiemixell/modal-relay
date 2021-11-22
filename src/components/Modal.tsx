@@ -1,8 +1,20 @@
 import React from "react";
 import FocusLock from "react-focus-lock";
 import uniqid from "uniqid";
-import { ModalType } from "../core/types";
+import { ModalType, ModalStore } from "../core/types";
 import { useModalStore } from "../core/store";
+
+const dialogProps = {
+  className: "modal",
+  role: "dialog",
+  "aria-modal": "true"
+} as React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
+
+// Placing outside of the component to avoid re-rendering.
+const selector = (state: ModalStore) => ({ deactivate: state.deactivate });
 
 export const Modal = ({
   id,
@@ -11,25 +23,14 @@ export const Modal = ({
   description,
   actions = []
 }: ModalType) => {
-  let { deactivate } = useModalStore(
-    React.useCallback(
-      (state) => ({ deactivate: state.deactivate }),
-      []
-    )
-  );
+  let { deactivate } = useModalStore(selector);
+
+  // Storing accessablity related dynamic id's in ref to avoid re-rendering.
   const titleIdRef = React.useRef(uniqid("title-"));
   const descIdRef = React.useRef(uniqid("desc-"));
 
+  // Using useCallback because this is a dependency of useEffect which would cause re-rendering.
   const closeDialog = React.useCallback(() => deactivate(id), [id, deactivate]);
-
-  const dialogProps = {
-    className: "modal",
-    role: "dialog",
-    "aria-modal": "true"
-  } as React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
-  >;
 
   if (title) {
     dialogProps["aria-labelledby"] = titleIdRef.current;
