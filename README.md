@@ -1,8 +1,8 @@
-# modal-router
+# Modal Relay
 
 > Made with create-react-library
 
-[![NPM](https://img.shields.io/npm/v/modal-router.svg)](https://www.npmjs.com/package/modal-router) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/modal-relay.svg)](https://www.npmjs.com/package/modal-relay) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
@@ -15,7 +15,7 @@ npm install --save modal-router
 ```tsx
 import React from 'react'
 
-import { ModalRouter, Modal, useModalStore } from 'modal-router';
+import { ModalRouter, Modal, useModalStore } from 'modal-relay';
 
 const modalRoot = document.getElementById('modal-root');
 
