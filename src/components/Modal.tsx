@@ -29,7 +29,7 @@ export const Modal = ({
   let deactivate = useModalStore(selector);
 
   // Using useCallback because this is a dependency of useEffect which would cause re-rendering.
-  const closeDialog = React.useCallback(() => deactivate(id), [id, deactivate]);
+  const closeDialog = React.useCallback(() => deactivate(id), []);
 
   if (title) {
     dialogProps["aria-labelledby"] = titleId;
@@ -67,11 +67,11 @@ export const Modal = ({
             {actions.length > 0
               ? actions.map((action) => (
                   <button
-                    key={action.text}
+                    key={action.label}
                     className="button button--primary"
                     onClick={action.onClick}
                   >
-                    {action.text}
+                    {action.label}
                   </button>
                 ))
               : null}
