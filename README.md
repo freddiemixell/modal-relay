@@ -2,7 +2,9 @@
 
 > Made with create-react-library
 
-[![NPM](https://img.shields.io/npm/v/modal-relay.svg)](https://www.npmjs.com/package/modal-relay) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/modal-relay.svg)](https://www.npmjs.com/package/modal-relay)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Build Size](https://img.shields.io/bundlephobia/minzip/modal-relay?label=bundle%20size&style=flat&colorA=000000&colorB=000000)](https://bundlephobia.com/result?p=modal-relay)
 
 ## Install (PRE-RELEASE Not Available)
 NPM:
