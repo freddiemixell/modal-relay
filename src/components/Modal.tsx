@@ -15,7 +15,7 @@ const dialogProps = {
 // Placing outside of the component to avoid re-rendering.
 const selector = (state: ModalStore) => state.deactivate;
 
-// Since only one modal can be active at a time, we can use a single class for all modals.
+// Since only one modal can be active at a time, we can use a single ID for all modals.
 const titleId = 'modal-title';
 const descId = 'modal-desc';
 
