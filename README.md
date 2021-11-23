@@ -105,7 +105,7 @@ I think this is better to show an example of what works and what doesn't:
   <YourOtherModal/>
 </ModalRouter>
 ```
-Even if you pass and ID to the `<Modal/>` component within your custom modal, the `<ModalRouter/>` won't be able to detect it. A good rule of thumb is to create your ID as a variable and export it from your custom modal. Then when you want to activate that modal you just import that variable and pass it to `activate()` or `<ModalLink/>`.
+Even if you pass an ID to the `<Modal/>` component within your custom modal, the `<ModalRouter/>` won't be able to detect it. A good rule of thumb is to create your ID as a variable and export it from your custom modal. Then when you want to activate that modal you just import that variable and pass it to `activate()` or `<ModalLink/>`.
 
 ## License
 
