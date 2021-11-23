@@ -1,28 +1,18 @@
 import React from 'react'
 
-import { ModalRouter, Modal, useModalStore } from 'modal-router';
+import { ModalRouter } from 'modal-relay';
+import SettingsModal, { SETTINGS_MODAL_ID } from './components/SettingsModal';
+import SomePage from './components/SomePage';
 
 const modalRoot = document.getElementById('modal-root');
 
 const App = () => {
-  const {activate, deactivate} = useModalStore();
 
   return (
     <div>
-      <button onClick={() => activate('settings')}>Edit Settings</button>
+      <SomePage/>
       <ModalRouter modalRoot={modalRoot}>
-        <Modal
-          id="settings"
-          title="Settings"
-          actions={[
-            {
-              text: 'Close',
-              onClick: () => deactivate('settings')
-            }
-          ]}
-        >
-          <h1>Settings</h1>
-        </Modal>
+        <SettingsModal id={SETTINGS_MODAL_ID} />
       </ModalRouter>
     </div>
   )
