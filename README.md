@@ -4,7 +4,7 @@
 
 [![NPM](https://img.shields.io/npm/v/modal-relay.svg)](https://www.npmjs.com/package/modal-relay) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-## Install
+## Install (PRE-RELEASE Not Available)
 NPM:
 ```bash
 npm install --save modal-relay
