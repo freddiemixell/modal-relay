@@ -84,10 +84,10 @@ export default SomePage;
 ## Common Mistakes
 There are two ways that you could mess this up right out of the box.
 
-1. **You didn't create a portal element.**
-You'll need access to the HTML markup where your React app is being rendered. If you're using something like Create React App that will be the `index.html` located within your `./public` folder. If you're not using CRA you will likely have to figure out how to modify the HTML template created by your build system. Most frameworks provide documentation about how to do this but if you're confused just open an issue! :)
-2. **No ID Set At Modal Router Level**
-I think this is better to show an example of what works and what doesn't:
+1. You didn't create a portal element:
+  - You'll need access to the HTML markup where your React app is being rendered. If you're using something like Create React App that will be the `index.html` located within your `./public` folder. If you're not using CRA you will likely have to figure out how to modify the HTML template created by your build system. Most frameworks provide documentation about how to do this but if you're confused just open an issue! :)
+2. No ID Set At Modal Router Level:
+  - I think this is better to show an example of what works and what doesn't:
 
 ##### Works
 ```tsx
