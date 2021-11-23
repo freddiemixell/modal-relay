@@ -1,4 +1,4 @@
-type ActionButton = { text: string; onClick: () => void };
+type ActionButton = { label: string; onClick: (e?: any) => void };
 
 export interface ModalType {
   id: string;
