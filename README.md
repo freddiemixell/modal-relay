@@ -36,7 +36,7 @@ const App = () => {
           title="Settings"
           actions={[
             {
-              text: 'Close',
+              label: 'Close',
               onClick: () => deactivate('settings')
             }
           ]}
