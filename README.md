@@ -19,7 +19,6 @@ Add the `<ModalRouter/>` to your app and pass your modals. You can use the built
  
 ```tsx
 import React from 'react'
-
 import { ModalRouter, Modal, useModalStore } from 'modal-relay';
 
 const modalRoot = document.getElementById('modal-root');
