@@ -108,6 +108,63 @@ There are two ways that you could mess this up right out of the box.
 ```
 Even if you pass an ID to the `<Modal/>` component within your custom modal, the `<ModalRouter/>` won't be able to detect it. A good rule of thumb is to create your ID as a variable and export it from your custom modal. Then when you want to activate that modal you just import that variable and pass it to `activate()` or `<ModalLink/>`.
 
+## API
+Docs for each component are co-located with the components. Check out the `/src` directory for the most accurate listing of components/core functionality and documentation. I'm going to try to keep a list updated here but it may be out of sync at times.
+
+#### [<Modal\/>](https://github.com/freddiemixell/modal-relay/src/components/README.md)
+- Full A11y Support
+- Pass custom actions to the modal to allow granular control of the experience.
+
+#### [<ModalRouter\/>](https://github.com/freddiemixell/modal-relay/src/components/README.md)
+- Uses React Portals to escape the react tree and render your modal above your application.
+- Register all your modals for a particular page as its children.
+- Listens for activated Modals and surfaces them for user interaction.
+
+#### [useModalStore](https://github.com/freddiemixell/modal-relay/src/components/README.md)
+- Use this hook anywhere you want to activate or deactivate your modals.
+- V minimal allowing for flexibility in creating modal flows. Wrap the function with whatever logic you want before calling `activate(id)` or `deactivate(id)`.
+- No context layers required.
+
+#### [<ModalLink\/>](https://github.com/freddiemixell/modal-relay/src/components/README.md)
+- Open any modal by passing this component it's ID.
+
+## No CSS Included 🚫
+There isn't any css included in this library and that is intentional. All components will take `className` or style props making them perfect complements for libraries like styled-components or really any style system.
+
+You will find a bare bones css starter below. This will show you all the css classes that are available one the modal. Take these *ugly* styles and turn it into your own beautiful modal! 😃
+
+```css
+/* Modal dialog element */
+.modal {
+  display: block;
+}
+
+/* Inside the modal */
+.modal__window {
+  display: inline-block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border: 2px solid black;
+  padding: 18px;
+  z-index: 101;
+}
+
+
+/* Element Behind The Modal */
+.modal__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+```
+
 ## License
 
-MIT © [freddiemixell](https://github.com/freddiemixell)
+MIT © [freddiemixell](https://github.com/freddiemixell/modal-relay/LICENSE)
