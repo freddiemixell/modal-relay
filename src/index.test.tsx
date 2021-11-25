@@ -1,7 +1,7 @@
-// import { ExampleComponent } from '.'
+import { ModalRouter } from '.'
 
-// describe('ExampleComponent', () => {
-//   it('is truthy', () => {
-//     expect(ExampleComponent).toBeTruthy()
-//   })
-// })
+describe('ExampleComponent', () => {
+  it('is truthy', () => {
+    expect(ModalRouter).toBeTruthy()
+  })
+})
