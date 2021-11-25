@@ -1,16 +1,16 @@
-import React from "react";
-import FocusLock from "react-focus-lock";
-import { ModalType, ModalStore } from "../core/types";
-import { useModalStore } from "../core/store";
+import React from 'react'
+import FocusLock from 'react-focus-lock'
+import { ModalType, ModalStore } from '../core/types'
+import { useModalStore } from '../core/store'
 
 const dialogProps = {
-  className: "modal",
-  role: "dialog",
-  "aria-modal": "true"
+  className: 'modal',
+  role: 'dialog',
+  'aria-modal': 'true'
 } as React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
->;
+>
 
 // Placing outside of the component to avoid re-rendering.
 const selector = (state: ModalStore) => state.deactivate;
@@ -26,35 +26,33 @@ export const Modal = ({
   description,
   actions = []
 }: ModalType) => {
-  let deactivate = useModalStore(selector);
+  const deactivate = useModalStore(selector)
 
   // Using useCallback because this is a dependency of useEffect which would cause re-rendering.
-  const closeDialog = React.useCallback(() => deactivate(id), []);
+  const closeDialog = React.useCallback(() => deactivate(id), [])
 
   if (title) {
-    dialogProps["aria-labelledby"] = titleId;
+    dialogProps['aria-labelledby'] = titleId
   }
 
   if (description) {
-    dialogProps["aria-describedby"] = descId;
+    dialogProps['aria-describedby'] = descId
   }
 
   // Allow users to close the modal with ESC key.
   React.useEffect(() => {
     const close = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        closeDialog();
+      if (e.key === 'Escape') {
+        closeDialog()
       }
-    };
-    document.addEventListener("keydown", close);
-    return () => document.removeEventListener("keydown", close);
-  }, [closeDialog]);
+    }
+    document.addEventListener('keydown', close)
+    return () => document.removeEventListener('keydown', close)
+  }, [closeDialog])
 
   return (
     <FocusLock returnFocus>
-      <div
-        {...dialogProps}
-      >
+      <div {...dialogProps}>
         <div className="modal__window">
           {(title || description) && (
             <header className="modal__head">
@@ -77,8 +75,8 @@ export const Modal = ({
               : null}
           </footer>
         </div>
-        <div onClick={closeDialog} className="modal__mask"></div>
+        <div onClick={closeDialog} className="modal__mask" />
       </div>
     </FocusLock>
-  );
-};
+  )
+}
