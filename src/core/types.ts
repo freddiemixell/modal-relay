@@ -8,7 +8,7 @@ export interface ModalType {
   actions?: ActionButton[]
 }
 
-export interface ModalRouterProps {
+export interface ModalRelayProps {
   children: JSX.Element | JSX.Element[]
   modalRoot: HTMLElement | null
 }

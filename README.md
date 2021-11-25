@@ -17,11 +17,11 @@ yarn add modal-relay
 ```
 
 ## Usage
-Add the `<ModalRouter/>` to your app and pass your modal components. You can use the built in modal or pass your own. **Make sure you set the ID for each modal on the components that are being passed to the router.**
+Add the `<ModalRelay/>` to your app and pass your modal components. You can use the built in modal or pass your own. **Make sure you set the ID for each modal on the components that are being passed to the router.**
  
 ```tsx
 import React from 'react'
-import { ModalRouter, Modal, useModalStore } from 'modal-relay';
+import { ModalRelay, Modal, useModalStore } from 'modal-relay';
 
 const modalRoot = document.getElementById('modal-root');
 
@@ -31,7 +31,7 @@ const App = () => {
   return (
     <div>
       <button onClick={() => activate('settings')}>Edit Settings</button>
-      <ModalRouter modalRoot={modalRoot}>
+      <ModalRelay modalRoot={modalRoot}>
         <Modal
           id="settings"
           title="Settings"
@@ -44,7 +44,7 @@ const App = () => {
         >
           <h1>Settings</h1>
         </Modal>
-      </ModalRouter>
+      </ModalRelay>
     </div>
   )
 }
@@ -93,20 +93,20 @@ There are two ways that you could mess this up right out of the box.
 
 ##### Works
 ```tsx
-<ModalRouter modalRoot={modalRoot}>
+<ModalRelay modalRoot={modalRoot}>
   <YourCustomModal id="custom-modal-one"/>
   <YourOtherModal id="other-modal"/>
-</ModalRouter>
+</ModalRelay>
 ```
 
 ##### Doesn't Work
 ```tsx
-<ModalRouter modalRoot={modalRoot}>
+<ModalRelay modalRoot={modalRoot}>
   <YourCustomModal/>
   <YourOtherModal/>
-</ModalRouter>
+</ModalRelay>
 ```
-Even if you pass an ID to the `<Modal/>` component within your custom modal, the `<ModalRouter/>` won't be able to detect it. A good rule of thumb is to create your ID as a variable and export it from your custom modal. Then when you want to activate that modal you just import that variable and pass it to `activate()` or `<ModalLink/>`.
+Even if you pass an ID to the `<Modal/>` component within your custom modal, the `<ModalRelay/>` won't be able to detect it. A good rule of thumb is to create your ID as a variable and export it from your custom modal. Then when you want to activate that modal you just import that variable and pass it to `activate()` or `<ModalLink/>`.
 
 ## API
 Docs for each component are co-located with the components. Check out the `/src` directory for the most accurate listing of components/core functionality and documentation. I'm going to try to keep a list updated here but it may be out of sync at times.
@@ -115,7 +115,7 @@ Docs for each component are co-located with the components. Check out the `/src`
 - Full A11y Support
 - Pass custom actions to the modal to allow granular control of the experience.
 
-#### [<ModalRouter\/>](https://github.com/freddiemixell/modal-relay/src/components/README.md)
+#### [<ModalRelay\/>](https://github.com/freddiemixell/modal-relay/src/components/README.md)
 - Uses React Portals to escape the react tree and render your modal above your application.
 - Register all your modals for a particular page as its children.
 - Listens for activated Modals and surfaces them for user interaction.

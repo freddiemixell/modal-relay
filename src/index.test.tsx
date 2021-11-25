@@ -1,7 +1,7 @@
-import { ModalRouter } from '.'
+import { ModalRelay } from '.'
 
 describe('ExampleComponent', () => {
   it('is truthy', () => {
-    expect(ModalRouter).toBeTruthy()
+    expect(ModalRelay).toBeTruthy()
   })
 })

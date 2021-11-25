@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, useModalStore } from 'modal-relay';
 
-// Set the ID here because it needs to be avaiable to the <ModalRouter/> component.
+// Set the ID here because it needs to be available to the <ModalRelay/> component.
 type SettingsProps = {
     id: string;
 }

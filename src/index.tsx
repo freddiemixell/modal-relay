@@ -1,6 +1,6 @@
 import { Modal } from './components/Modal'
-import { ModalRouter } from './components/ModalRouter'
+import { ModalRelay } from './components/ModalRelay'
 import { ModalLink } from './components/ModalLink'
 import { useModalStore } from './core/store'
 
-export { Modal, ModalRouter, ModalLink, useModalStore }
+export { Modal, ModalRelay, ModalLink, useModalStore }

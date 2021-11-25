@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ModalRouter } from 'modal-relay';
+import { ModalRelay } from 'modal-relay';
 import SettingsModal, { SETTINGS_MODAL_ID } from './components/SettingsModal';
 import SomePage from './components/SomePage';
 
@@ -11,9 +11,9 @@ const App = () => {
   return (
     <div>
       <SomePage/>
-      <ModalRouter modalRoot={modalRoot}>
+      <ModalRelay modalRoot={modalRoot}>
         <SettingsModal id={SETTINGS_MODAL_ID} />
-      </ModalRouter>
+      </ModalRelay>
     </div>
   )
 }
