@@ -111,21 +111,21 @@ Even if you pass an ID to the `<Modal/>` component within your custom modal, the
 ## API
 Docs for each component are co-located with the components. Check out the `/src` directory for the most accurate listing of components/core functionality and documentation. I'm going to try to keep a list updated here but it may be out of sync at times.
 
-#### [<Modal\/>](https://github.com/freddiemixell/modal-relay/src/components/README.md)
+#### [<Modal\/>](https://github.com/freddiemixell/modal-relay/src/components)
 - Full A11y Support
 - Pass custom actions to the modal to allow granular control of the experience.
 
-#### [<ModalRelay\/>](https://github.com/freddiemixell/modal-relay/src/components/README.md)
+#### [<ModalRelay\/>](https://github.com/freddiemixell/modal-relay/src/components)
 - Uses React Portals to escape the react tree and render your modal above your application.
 - Register all your modals for a particular page as its children.
 - Listens for activated Modals and surfaces them for user interaction.
 
-#### [useModalStore](https://github.com/freddiemixell/modal-relay/src/components/README.md)
+#### [useModalStore](https://github.com/freddiemixell/modal-relay/src/components)
 - Use this hook anywhere you want to activate or deactivate your modals.
 - V minimal allowing for flexibility in creating modal flows. Wrap the function with whatever logic you want before calling `activate(id)` or `deactivate(id)`.
 - No context layers required.
 
-#### [<ModalLink\/>](https://github.com/freddiemixell/modal-relay/src/components/README.md)
+#### [<ModalLink\/>](https://github.com/freddiemixell/modal-relay/src/components)
 - Open any modal by passing this component it's ID.
 
 ## No CSS Included 🚫
