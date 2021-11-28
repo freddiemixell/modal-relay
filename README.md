@@ -17,8 +17,8 @@ yarn add modal-relay
 ```
 
 ## Examples
-[Full Example](https://github.com/freddiemixell/modal-relay/tree/main/example/)
-[Typescript Codesandbox Example](https://codesandbox.io/s/accessible-modals-react-56o7x?file=/src/components/Modals/FirstLaunchModal.tsx)
+- [Full Example](https://github.com/freddiemixell/modal-relay/tree/main/example/)
+- [Typescript Codesandbox Example](https://codesandbox.io/s/accessible-modals-react-56o7x?file=/src/components/Modals/FirstLaunchModal.tsx)
 
 ## API
 Docs for each component are co-located with the components. Check out the `/src` directory for the most accurate listing of components/core functionality and documentation. I'm going to try to keep a list updated here but it may be out of sync at times.
