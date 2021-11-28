@@ -4,7 +4,7 @@
   "description": "Display modals from anywhere in your app easily. React Router not required!",
   "author": "freddiemixell",
   "license": "MIT",
-  "repository": "freddiemixell/modal-router",
+  "repository": "freddiemixell/modal-relay",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
