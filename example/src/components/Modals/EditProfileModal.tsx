@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useModalStore, ModalMask, Modal, useEscapeHatch, ModalStore, ModalWindow, CloseIcon } from "modal-relay";
+import { useModalStore, ModalMask, Modal, ModalStore, ModalWindow, CloseIcon } from "modal-relay";
 
 type EditProfileModalProps = {
     id: string;
@@ -19,9 +19,6 @@ export const EditProfileModal = ({id}: EditProfileModalProps) => {
         // do some logic to save the profile.
         deactivate(id);
     }
-
-    // Callback function to handle escape key press.
-    useEscapeHatch(handleClose);
 
     return (
         <Modal
