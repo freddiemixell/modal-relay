@@ -1,87 +1,94 @@
 # Components
 
 ## Modal
+This is the basic building block of an accessible modal element. By default it includes all props you'll need for a11y support except for `aria-labelledby` and `aria-describedby`. All modals should be built with this as the outer wrapper.
 
-This is an A11y first modal. No stylesheet is included by this module so that you can fully utilize whatever system you're using. A full list of css classes can be seen below to style however you'd like.
+- A11y First
+- Built with `<FocusLock/>` from [react-focus-lock](https://github.com/theKashey/react-focus-lock)
+- Automatically returns focus to activating element when the modal is closed.
 
 **Props:**
 
-- id: `String`
-- children: `JSX.Element | JSX.Element[]`
-- title: `String`
-- description: `String`
-- actions: `Array<{label: `String`, onClick: `Function`}>`
+- `HTMLDivElement` props.
+- `aria-labelledby` String - this is the id for the title element.
+- `aria-describedby` String - this is the id for the content element.
 
 ### Example
 
-Styled Components
+```jsx
+<Modal
+  aria-labelledby="modal-title"
+  aria-describedby="modal-description"
+>
+... your component
+</Modal>
+```
+
+## ModalWindow
+This is a helper simply to describe the basic building blocks all modals should follow in this system. The window also has built in Tailwind css support for quick integration. Also includes a default class of `modal__window` for styling.
+
+**Props:**
+
+- `HTMLDivElement` props.
+- `tailwind` Boolean (optional)
+
+### Example w/Tailwind
 
 ```jsx
-  import styled from "styled-components";
-  import { Modal, useModalStore } from "modal-relay";
+<Modal
+  aria-labelledby="modal-title"
+  aria-describedby="modal-description"
+>
+  <ModalWindow tailwind>
+  ... your component
+  </ModalWindow>
+</Modal>
+```
 
-  const StyledModal = styled.(Modal)`
-      display: block;
+## ModalMask
+This is another building block component that all modals should utilize by default. If you don't use this component you should create one in your system. Having a background that allows users to exit on click is essential to usability with your modals.
 
-      /* Inside the modal */
-      .modal__window {
-          display: inline-block;
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          background: #fff;
-          border: 2px solid black;
-          padding: 18px;
-          z-index: 101;
-      }
+By default this modal mask will allow users to click outside of the modal to exit with its `onClose` prop. This same `onClose` prop will be used to listen for the `Escape` key press. When that happens it will automatically run the `onClose` logic.
 
+**Props:**
 
-      /* Element Behind The Modal */
-      .modal__mask {
-          position: fixed;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          background: rgba(0, 0, 0, 0.5);
-          z-index: 100;
-      }
-  `;
+- `HTMLDivElement` props.
+- `tailwind` Boolean (optional)
+- `onClose` () => void The method to run on modal close.
 
-  type ModalSettingsProps = {
-      id: string;
-  }
+### Example w/Tailwind
 
-  export default function SettingsModal(({id}): ModalSettingsProps) {
-      let {deactivate} = useModalStore();
-      const handleUpdate = () => {
-          console.log('Updated Settings');
-          deactivate(id);
-      }
-      return (
-          <StyledModal
-              id={id}
-              title="Settings"
-              description="Update your app settings."
-              action=[
-                  {
-                      onClick: () => deactivate(id),
-                      label: "Cancel"
-                  },
-                  {
-                      onClick: handleUpdate,
-                      label: "Update Settings"
-                  }
-              ]
-          >
-              <div>
-                  <label htmlFor="dark-mode">Dark Mode</label>
-                  <input id="dark-mode" type="checkbox"/>
-              </div>
-          </StyledModal>
-      );
-  }
+```jsx
+<Modal>
+  <ModalWindow tailwind>
+  ... your component
+  </ModalWindow>
+  <ModalMask tailwind onClose={handleClose} />
+</Modal>
+```
+
+## CloseIcon
+This is yet another building block component that is met more or less as an example of how you should create your close Icon. That doesn't mean you shouldn't use it because this is the a11y friendly way to create a close icon.
+
+- Adds proper aria close label.
+- Wrapped with a button so it's available for tab navigation.
+
+**Props:**
+
+- `HTMLDivElement` props.
+- `onClose`: Function
+- `svgClassName`: String (Optional)
+- `svgViewBox`: String (Optional)
+- `tailwind`: Boolean (Optional)
+
+### Example w/Tailwind
+
+```jsx
+<CloseIcon
+  className="ml-auto"
+  onClose={handleClose}
+  tailwind
+/>
 ```
 
 ## ModalRelay
