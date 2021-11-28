@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, useModalStore } from 'modal-relay';
+import { Modal, ModalMask, ModalStore, useModalStore } from 'modal-relay';
 
 // Set the ID here because it needs to be available to the <ModalRelay/> component.
 type SettingsProps = {
@@ -13,26 +13,16 @@ function handleSubmit() {
 export const SETTINGS_MODAL_ID = 'settings';
 
 const SettingsModal = ({id}: SettingsProps) => {
-    const {deactivate} = useModalStore();
+    const deactivate = useModalStore((state: ModalStore) => state.deactivate);
     return (
         <Modal
-            id={id}
-            title="Settings"
-            actions={[
-                {
-                    label: 'Close',
-                    onClick: () => deactivate(id)
-                },
-                {
-                    label: 'Update',
-                    onClick: (e: React.FormEvent<HTMLFormElement>) => {
-                        e.preventDefault();
-                        handleSubmit();
-                    }
-                }
-            ]}
+            aria-labelledby="modal-title"
+            aria-describedby="modal-description"
         >
             <form onSubmit={handleSubmit}>
+                <div>
+                    <h2>Settings</h2>
+                </div>
                 <div>
                     <label htmlFor="firstName">First Name</label>
                     <input type="text" id="firstName" name="firstName"  />
@@ -41,7 +31,11 @@ const SettingsModal = ({id}: SettingsProps) => {
                     <label htmlFor="lastName">Last Name</label>
                     <input type="text" id="lastName" name="lastName"  />
                 </div>
+                <div>
+                    <button onClick={() => deactivate(id)}>Cancel</button>
+                </div>
             </form>
+            <ModalMask onClose={() => deactivate(id)}/>
         </Modal>
     )
 }
