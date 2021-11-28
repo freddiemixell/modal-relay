@@ -25,7 +25,7 @@ export const EditProfileModal = ({id}: EditProfileModalProps) => {
             aria-labelledby="modal-title"
             aria-describedby="modal-description"
         >
-            <ModalWindow tailwind>
+            <ModalWindow>
                 <div className="flex flex-col items-start p-4">
                     <div className="flex items-center w-full">
                         <h2 id="modal-title" className="text-gray-900 font-medium text-lg">
@@ -34,7 +34,6 @@ export const EditProfileModal = ({id}: EditProfileModalProps) => {
                         <CloseIcon
                             className="ml-auto"
                             onClose={handleClose}
-                            tailwind
                         />
                     </div>
                     <hr />
@@ -58,7 +57,7 @@ export const EditProfileModal = ({id}: EditProfileModalProps) => {
                     </div>
                 </div>
             </ModalWindow>
-            <ModalMask tailwind onClose={handleClose} />
+            <ModalMask onClose={handleClose} />
         </Modal>
     );
 }

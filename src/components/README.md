@@ -25,21 +25,20 @@ This is the basic building block of an accessible modal element. By default it i
 ```
 
 ## ModalWindow
-This is a helper simply to describe the basic building blocks all modals should follow in this system. The window also has built in Tailwind css support for quick integration. Also includes a default class of `modal__window` for styling.
+This is a helper simply to describe the basic building blocks all modals should follow in this system. Also includes a default class of `modal__window` for styling.
 
 **Props:**
 
 - `HTMLDivElement` props.
-- `tailwind` Boolean (optional)
 
-### Example w/Tailwind
+### Example
 
 ```jsx
 <Modal
   aria-labelledby="modal-title"
   aria-describedby="modal-description"
 >
-  <ModalWindow tailwind>
+  <ModalWindow>
   ... your component
   </ModalWindow>
 </Modal>
@@ -53,17 +52,16 @@ By default this modal mask will allow users to click outside of the modal to exi
 **Props:**
 
 - `HTMLDivElement` props.
-- `tailwind` Boolean (optional)
 - `onClose` () => void The method to run on modal close.
 
-### Example w/Tailwind
+### Example
 
 ```jsx
 <Modal>
-  <ModalWindow tailwind>
+  <ModalWindow>
   ... your component
   </ModalWindow>
-  <ModalMask tailwind onClose={handleClose} />
+  <ModalMask onClose={handleClose} />
 </Modal>
 ```
 
@@ -79,15 +77,13 @@ This is yet another building block component that is met more or less as an exam
 - `onClose`: Function
 - `svgClassName`: String (Optional)
 - `svgViewBox`: String (Optional)
-- `tailwind`: Boolean (Optional)
 
-### Example w/Tailwind
+### Example
 
 ```jsx
 <CloseIcon
   className="ml-auto"
   onClose={handleClose}
-  tailwind
 />
 ```
 

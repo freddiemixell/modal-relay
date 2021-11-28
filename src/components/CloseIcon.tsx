@@ -5,11 +5,7 @@ type CloseIconProps = {
   onClose: () => void;
   svgClassName?: string;
   svgViewBox?: string;
-  tailwind?: boolean;
 } & DefaultButtonProps;
-
-const TAILWIND_ICON_DEFAULT =
-  'fill-current text-gray-700 w-6 h-6 cursor-pointer';
 
 export const CloseIcon = ({
   onClose,
@@ -17,9 +13,6 @@ export const CloseIcon = ({
   svgViewBox = '0 0 18 18',
   ...props
 }: CloseIconProps) => {
-  if (props.tailwind) {
-    svgClassName += ' ' + TAILWIND_ICON_DEFAULT;
-  }
   return (
     <button type="button" onClick={onClose} aria-label="Close" {...props}>
       <svg
