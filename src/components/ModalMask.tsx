@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { DefaultDivProps } from '../core/types';
+import { useEscapeHatch } from '../core/helpers';
 
 type ModalMaskProps = {
   onClose: () => void;
@@ -17,6 +18,7 @@ export const ModalMask = ({
   if (props.tailwind) {
     className += ' ' + TAILWIND_MASK_DEFAULT;
   }
+  useEscapeHatch(onClose);
   return (
     <div onClick={onClose} className={`modal__mask ${className}`} {...props} />
   );
