@@ -16,104 +16,16 @@ YARN:
 yarn add modal-relay
 ```
 
-## Usage
-Add the `<ModalRelay/>` to your app and pass your modal components. You can use the built in modal or pass your own. **Make sure you set the ID for each modal on the components that are being passed to the router.**
- 
-```tsx
-import React from 'react'
-import { ModalRelay, Modal, useModalStore } from 'modal-relay';
-
-const modalRoot = document.getElementById('modal-root');
-
-const App = () => {
-  const {activate, deactivate} = useModalStore();
-
-  return (
-    <div>
-      <button onClick={() => activate('settings')}>Edit Settings</button>
-      <ModalRelay modalRoot={modalRoot}>
-        <Modal
-          id="settings"
-          title="Settings"
-          actions={[
-            {
-              label: 'Close',
-              onClick: () => deactivate('settings')
-            }
-          ]}
-        >
-          <h1>Settings</h1>
-        </Modal>
-      </ModalRelay>
-    </div>
-  )
-}
-
-export default App
-```
-
-## Opening Modals From Anywhere
-You can open a modal from anywhere by using the `<ModalLink/>` component.
-
-```tsx
-import React from 'react';
-import { ModalLink } from 'modal-relay';
-
-// You can use any HTMLButtonElement props with the <ModalLink/> component.
-const buttonStyle = {backgroundColor: '#333', color: 'white', border: 'none', borderRadius: '5em', padding: '10px 10px', fontWeight: 'bold'}
-
-const SomePage = () => {
-    return (
-        <div>
-            <header>
-                <h1>Some Page</h1>
-            </header>
-            <main>
-                <section>
-                    <p>Some content</p>
-                    <ModalLink open="settings" style={buttonStyle}>
-                        Edit Settings
-                    </ModalLink>
-                </section>
-            </main>
-        </div>
-    );
-}
-
-export default SomePage;
-```
-
-## Common Mistakes
-There are two ways that you could mess this up right out of the box.
-
-1. You didn't create a portal element:
-  - You'll need access to the HTML markup where your React app is being rendered. If you're using something like Create React App that will be the `index.html` located within your `./public` folder. If you're not using CRA you will likely have to figure out how to modify the HTML template created by your build system. Most frameworks provide documentation about how to do this but if you're confused just open an issue! :)
-2. No ID Set At Modal Router Level:
-  - I think this is better to show an example of what works and what doesn't:
-
-##### Works
-```tsx
-<ModalRelay modalRoot={modalRoot}>
-  <YourCustomModal id="custom-modal-one"/>
-  <YourOtherModal id="other-modal"/>
-</ModalRelay>
-```
-
-##### Doesn't Work
-```tsx
-<ModalRelay modalRoot={modalRoot}>
-  <YourCustomModal/>
-  <YourOtherModal/>
-</ModalRelay>
-```
-Even if you pass an ID to the `<Modal/>` component within your custom modal, the `<ModalRelay/>` won't be able to detect it. A good rule of thumb is to create your ID as a variable and export it from your custom modal. Then when you want to activate that modal you just import that variable and pass it to `activate()` or `<ModalLink/>`.
+## Examples
+[Full Example](https://github.com/freddiemixell/modal-relay/tree/main/example/)
 
 ## API
 Docs for each component are co-located with the components. Check out the `/src` directory for the most accurate listing of components/core functionality and documentation. I'm going to try to keep a list updated here but it may be out of sync at times.
 
 #### [<Modal\/>](https://github.com/freddiemixell/modal-relay/tree/main/src/components)
-- Full A11y Support
-- Pass custom actions to the modal to allow granular control of the experience.
+- A11y First
+- Built with `<FocusLock/>` from [react-focus-lock](https://github.com/theKashey/react-focus-lock)
+- Automatically returns focus to activating element when the modal is closed.
 
 #### [<ModalRelay\/>](https://github.com/freddiemixell/modal-relay/tree/main/src/components)
 - Uses React Portals to escape the react tree and render your modal above your application.
@@ -131,7 +43,9 @@ Docs for each component are co-located with the components. Check out the `/src`
 ## No CSS Included 🚫
 There isn't any css included in this library and that is intentional. All components will take `className` or style props making them perfect complements for libraries like styled-components or really any style system.
 
-You will find a bare bones css starter below. This will show you all the css classes that are available one the modal. Take these *ugly* styles and turn it into your own beautiful modal! 😃
+You will find a bare bones css starter below. This will show you all the css classes that are available on the modal. Take these *ugly* styles and turn it into your own beautiful modal! 😃
+
+If you're using Tailwinds take a look at the example repo to see how you can use the `tailwind` prop to get off the ground faster.
 
 ```css
 /* Modal dialog element */
@@ -164,6 +78,31 @@ You will find a bare bones css starter below. This will show you all the css cla
   z-index: 100;
 }
 ```
+
+## Common Mistakes
+There are two ways that you could mess this up right out of the box.
+
+1. You didn't create a portal element:
+  - You'll need access to the HTML markup where your React app is being rendered. If you're using something like Create React App that will be the `index.html` located within your `./public` folder. If you're not using CRA you will likely have to figure out how to modify the HTML template created by your build system. Most frameworks provide documentation about how to do this but if you're confused just open an issue! :)
+2. No ID Set At Modal Router Level:
+  - I think this is better to show an example of what works and what doesn't:
+
+##### Works
+```tsx
+<ModalRelay modalRoot={modalRoot}>
+  <YourCustomModal id="custom-modal-one"/>
+  <YourOtherModal id="other-modal"/>
+</ModalRelay>
+```
+
+##### Doesn't Work
+```tsx
+<ModalRelay modalRoot={modalRoot}>
+  <YourCustomModal/>
+  <YourOtherModal/>
+</ModalRelay>
+```
+Even if you pass an ID to the `<Modal/>` component within your custom modal, the `<ModalRelay/>` won't be able to detect it. A good rule of thumb is to create your ID as a variable and export it from your custom modal. Then when you want to activate that modal you just import that variable and pass it to `activate()` or `<ModalLink/>`.
 
 ## License
 
