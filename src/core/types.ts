@@ -1,13 +1,3 @@
-export type ActionButton = { label: string; onClick: (e?: any) => void }
-
-export interface ModalType {
-  id: string
-  children: JSX.Element | JSX.Element[]
-  title?: string
-  description?: string
-  actions?: ActionButton[]
-}
-
 export interface ModalRelayProps {
   children: JSX.Element | JSX.Element[]
   modalRoot: HTMLElement | null
