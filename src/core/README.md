@@ -1,6 +1,7 @@
 # Core
 
 ## useModalStore
+
 This hook is a global store that allows you to add and remove modals from the `<ModalRelay/>` component. This is using the [zustand](https://github.com/pmndrs/zustand) library under the hood so it can be accessed from anywhere in your application. You can also pass a selector to `useModalStore` to optimize it for re-renders.
 
 ```jsx
@@ -19,4 +20,3 @@ export default function SomePage() {
     );
 }
 ```
-

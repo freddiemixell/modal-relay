@@ -1,7 +1,7 @@
-import { ModalRelay } from '.'
+import { ModalRelay } from '.';
 
 describe('ExampleComponent', () => {
   it('is truthy', () => {
-    expect(ModalRelay).toBeTruthy()
-  })
-})
+    expect(ModalRelay).toBeTruthy();
+  });
+});

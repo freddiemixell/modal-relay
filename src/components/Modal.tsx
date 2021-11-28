@@ -1,22 +1,13 @@
-import React from 'react'
-import FocusLock from 'react-focus-lock'
-
-type DefaultDivProps = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
->
+import React from 'react';
+import FocusLock from 'react-focus-lock';
+import { DefaultDivProps } from '../core/types';
 
 export const Modal = ({ children, ...props }: DefaultDivProps) => {
-    return (
-      <FocusLock returnFocus>
-        <div
-          className="modal"
-          role="dialog"
-          aria-modal="true"
-          {...props}
-        >
-          {children}
-        </div>
-      </FocusLock>
-    )
-  }
+  return (
+    <FocusLock returnFocus>
+      <div className="modal" role="dialog" aria-modal="true" {...props}>
+        {children}
+      </div>
+    </FocusLock>
+  );
+};
