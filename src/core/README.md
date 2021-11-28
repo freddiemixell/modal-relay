@@ -20,3 +20,20 @@ export default function SomePage() {
     );
 }
 ```
+
+## useEscapeHatch
+
+This hook will allow you to pass your onClose handler to trigger on keyboard escape key press. If you're using the `<ModalMask/>` component you don't need to use that component will attach the listener for you. 
+
+```jsx
+import { useEscapeHatch, useModalStore } from "modal-relay";
+
+function MyModal({id}) {
+    const {deactivate} = useModalStore();
+    const onClose = () => deactivate(id);
+
+    useEscapeHatch(onClose);
+
+    ...component stuff
+}
+```
