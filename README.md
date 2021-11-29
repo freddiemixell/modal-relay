@@ -18,6 +18,7 @@ yarn add modal-relay
 
 ## Examples
 - [Full Example](https://github.com/freddiemixell/modal-relay/tree/main/example/)
+- [Codesandbox Example](https://codesandbox.io/s/modal-relay-example-kxo52)
 - [Typescript Codesandbox Example](https://codesandbox.io/s/accessible-modals-react-56o7x?file=/src/components/Modals/FirstLaunchModal.tsx)
 
 ## API
