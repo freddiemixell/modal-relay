@@ -47,8 +47,6 @@ There isn't any css included in this library and that is intentional. All compon
 
 You will find a bare bones css starter below. This will show you all the css classes that are available on the modal. Take these *ugly* styles and turn it into your own beautiful modal! 😃
 
-If you're using Tailwinds take a look at the example repo to see how you can use the `tailwind` prop to get off the ground faster.
-
 ```css
 /* Modal dialog element */
 .modal {

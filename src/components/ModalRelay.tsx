@@ -9,7 +9,18 @@ const selector = (state: ModalStore) => state.modals;
 export const ModalRelay = ({ children, modalRoot }: ModalRelayProps) => {
   const modals = useModalStore(selector);
   const filteredModals = React.Children.toArray(children).filter(
-    (child) => React.isValidElement(child) && modals.includes(child.props?.id)
+    (child) => {
+      if (!React.isValidElement(child)) {
+        return;
+      }
+      const isActiveAndFirst =
+        modals.findIndex(element => element === child.props?.id) === 0;
+      if (isActiveAndFirst) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   );
 
   // Destructure the first modal so we only ever show one at a time.
