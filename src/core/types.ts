@@ -1,3 +1,5 @@
+import { ReactFocusLockProps } from "react-focus-lock/interfaces";
+
 export interface ModalRelayProps {
   children: JSX.Element | JSX.Element[];
   modalRoot: HTMLElement | null;
@@ -18,3 +20,5 @@ export type DefaultButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 >;
+
+export type FocusLockProps = ReactFocusLockProps<React.ReactNode, Record<string, any>>;

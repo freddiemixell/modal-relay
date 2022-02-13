@@ -1,10 +1,20 @@
 import React from 'react';
 import FocusLock from 'react-focus-lock';
-import { DefaultDivProps } from '../core/types';
+import { DefaultDivProps, FocusLockProps } from '../core/types';
 
-export const Modal = ({ children, ...props }: DefaultDivProps) => {
+type ModalProps = {focusLockProps: FocusLockProps} & DefaultDivProps;
+
+const defaultFocusProps: FocusLockProps = {
+  returnFocus: true,
+};
+
+export const Modal = ({
+  children,
+  focusLockProps = defaultFocusProps,
+  ...props
+}: ModalProps) => {
   return (
-    <FocusLock returnFocus>
+    <FocusLock {...focusLockProps}>
       <div className="modal" role="dialog" aria-modal="true" {...props}>
         {children}
       </div>
