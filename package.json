@@ -1,6 +1,6 @@
 {
   "name": "modal-relay",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Display modals from anywhere in your app easily. React Router not required!",
   "author": "freddiemixell",
   "license": "MIT",
@@ -24,7 +24,7 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^17.0.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",

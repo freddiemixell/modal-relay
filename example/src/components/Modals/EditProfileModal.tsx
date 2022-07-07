@@ -24,6 +24,7 @@ export const EditProfileModal = ({id}: EditProfileModalProps) => {
         <Modal
             aria-labelledby="modal-title"
             aria-describedby="modal-description"
+            focusLockProps={{autoFocus: true, returnFocus: true }}
         >
             <ModalWindow>
                 <div className="flex flex-col items-start p-4">
